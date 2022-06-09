@@ -17,13 +17,16 @@ public class Ex01_Quiz01 extends HttpServlet {
 		int en_score = Integer.parseInt(request.getParameter("en_score"));
 		int mt_score = Integer.parseInt(request.getParameter("mt_score"));
 		int sum = ko_score + en_score + mt_score;
-		int avg = sum / 3;
+		double avg = sum / 3.0;
 		response.setContentType("text/html; charset=utF-8");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("<p>ÃÑÁ¡Àº : " + sum + "Á¡<br>");
-		out.println("Æò±ÕÀº : " + avg + "Á¡</p>");
+		out.println("<p>±¹¾î : " + ko_score + "Á¡<br>");
+		out.println("¿µ¾î : " + en_score + "Á¡<br>");
+		out.println("¼öÇÐ : " + mt_score + "Á¡<br>");
+		out.println("ÃÑÁ¡ : " + sum + "Á¡<br>");
+		out.println("Æò±Õ : " + avg + "Á¡</p>");
 		out.println("</body></html>");
 	}
 

@@ -19,7 +19,7 @@ public class Ex01_Quiz04 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("u_name");
-		int heat = Integer.parseInt(request.getParameter("u_heat"));
+		double heat = Double.parseDouble(request.getParameter("u_heat"));
 		String result;
 		
 		out.println("<html><body>");
@@ -32,6 +32,7 @@ public class Ex01_Quiz04 extends HttpServlet {
 				result = "양성";
 			}
 		} else {
+			
 			result = "음성";
 		}
 		out.println("<h1>최종 결과</h1>");

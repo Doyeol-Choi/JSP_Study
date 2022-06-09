@@ -23,8 +23,8 @@ public class Ex01_Quiz03 extends HttpServlet {
 			
 			out.println("<h3>" + n + "´Ü</h3>");
 			out.println("<table border='1'>");
-			for (int j=0; j < n; j++) {
-				out.println("<tr><td>"+(j+1)+"</td></tr>");
+			for (int j=1; j < 10; j++) {
+				out.println("<tr><td>"+n+" x "+j+" = "+(n*j)+"</td></tr>");
 			}
 			out.println("</table>");
 		}

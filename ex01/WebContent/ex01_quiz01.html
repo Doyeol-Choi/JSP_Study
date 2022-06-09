@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>서블릿</h2>
 	<form action="Q01" method="get">
 		<label for="ko_score">국어점수 : </label>
 		<input type="text" id="ko_score" name="ko_score"><br>
@@ -12,6 +13,16 @@
 		<input type="text" id="en_score" name="en_score"><br>
 		<label for="mt_score">수학점수 : </label>
 		<input type="text" id="mt_score" name="mt_score"><br>
+		<input type="submit" value="전송">
+	</form>
+	<h2>JSP</h2>
+	<form action="ex01_Q01.jsp" method="get">
+		<label for="ko_score">국어점수 : </label>
+		<input type="number" id="ko_score" name="ko_score" min="0" max="100"><br>
+		<label for="en_score">영어점수 : </label>
+		<input type="number" id="en_score" name="en_score" min="0" max="100"><br>
+		<label for="mt_score">수학점수 : </label>
+		<input type="number" id="mt_score" name="mt_score" min="0" max="100"><br>
 		<input type="submit" value="전송">
 	</form>
 </body>
