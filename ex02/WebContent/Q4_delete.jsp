@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%
+	request.setCharacterEncoding("UTF-8");
 	ArrayList<String> a_todo = (ArrayList<String>) session.getAttribute("a_todo");
 	
 	String todo = request.getParameter("todo");

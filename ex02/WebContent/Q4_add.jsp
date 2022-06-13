@@ -5,6 +5,7 @@
 
 
 <% 
+	request.setCharacterEncoding("UTF-8");
 	if (session.getAttribute("a_todo")==null) {
 %>
 		<%! ArrayList<String> a_todo = new ArrayList<>(); %>

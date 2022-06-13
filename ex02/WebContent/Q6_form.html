@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품 목록</title>
+<style>
+	form {width:200px;}
+	.num {
+		width:50px;
+		float:right;
+	}
+</style>
+</head>
+<body>
+	<h1>상품 목록</h1>
+	<form action="Q6_cookie.jsp" method="post">
+		<input type="radio" name="product_a" id="product_a" value="연필"><label for="product_a">연필  </label><input type="number" name="product_a2" class="num"><br>
+		<input type="radio" name="product_b" id="product_b" value="지우개"><label for="product_b">지우개  </label><input type="number" name="product_b2" class="num"><br>
+		<input type="radio" name="product_c" id="product_c" value="필통"><label for="product_c">필통  </label><input type="number" name="product_c2" class="num"><br>
+		<input type="radio" name="product_d" id="product_d" value="볼펜"><label for="product_d">볼펜  </label><input type="number" name="product_d2" class="num"><br>
+		<input type="radio" name="product_e" id="product_e" value="자"><label for="product_e">자  </label><input type="number" name="product_e2" class="num"><br>
+		<input type="radio" name="product_f" id="product_f" value="커터칼"><label for="product_f">커터칼  </label><input type="number" name="product_f2" class="num"><br>
+		<input type="radio" name="product_g" id="product_g" value="스테이플러"><label for="product_g">스테이플러  </label><input type="number" name="product_g2" class="num"><br>
+		<input type="submit" value="장바구니 담기">
+	</form>
+	<a href="Q6_basket.jsp"><button>장바구니 보기</button></a>
+</body>
+</html>
