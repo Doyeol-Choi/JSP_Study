@@ -30,9 +30,7 @@
 		String email = request.getParameter("uMail");
 		String phone = request.getParameter("uPhone");
 		int admin = Integer.parseInt(request.getParameter("uAdmin"));
-	%>
-	
-	<%
+
 		try {
 			// 1단계 : 드라이버 로드
 			Class.forName(driver);
