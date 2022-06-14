@@ -42,7 +42,9 @@
 			
 				// 4단계 : 쿼리문 실행
 				String sql = "UPDATE member SET userid='"+suserid+"', userpwd='"+suserpwd+"', email='"+semail+"', phone='"+sphone+"', admin='"+sadmin+"' WHERE name='"+sName+"'";
-			
+				
+				// String sql = "UPDATE member SET userid=?, userpwd=?, email=?, phone=?, admin=? WHERE name=?";
+				
 				int num = stmt.executeUpdate(sql);
 				System.out.println("바뀐 행의 개수 : " + num);
 			} catch(Exception e) {

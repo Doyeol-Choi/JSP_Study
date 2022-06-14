@@ -40,6 +40,8 @@
 				// 4단계 : 쿼리문 실행
 				String query = "SELECT * FROM member";		// 쿼리는 문자열로 처리하되 세미콜론은 반드시 뺀다.
 				
+				// String query = "SELECT * FROM member WHERE name=" + sName; 	// 이걸 활용하면 아래의 if문이 필요없다.
+				
 				rs = stmt.executeQuery(query);
 				
 				// 5단계 : 읽어온 데이터를 꺼내서 출력하기
@@ -59,13 +61,15 @@
 						<label for="userId">아이디 : </label>
 						<input type="text" name="userId" id="userId" value="<%= userid %>"><br>
 						<label for="userPwd">비밀번호 : </label>
-						<input type="password" name="userPwd" id="userPwd" value="<%= userpwd %>"><br>
+						<input type="password" name="userPwd" id="userPwd" required><br>
+						<!-- 비밀번호는 출력하지 않고 반드시 입력하도록 설정 -->
 						<label for="uMail">이메일 : </label>
 						<input type="email" name="uMail" id="uMail" value="<%= email %>"><br>
 						<label for="uPhone">전화번호 : </label>
 						<input type="tel" name="uPhone" id="uPhone" value="<%= phone %>"><br>
 						<label for="uAdmin">Admin : </label>
-						<input type="number" name="uAdmin" id="uAdmin" value="<%= admin %>"><br>
+						<input type="number" name="uAdmin" id="uAdmin" value="<%= admin %>" min='0' max='1'><br>
+						<!-- admin을 라디오 버튼으로 만들었다면 액션태그의 c:choose를 활용해서 값에 checked 속성을 넣어준다 -->
 						<input type="submit" value="수정하기">
 					</form>
 		<%

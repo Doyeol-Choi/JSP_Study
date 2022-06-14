@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("UTF-8");
 	String product_a = request.getParameter("product_a");
 	String product_b = request.getParameter("product_b");
 	String product_c = request.getParameter("product_c");
