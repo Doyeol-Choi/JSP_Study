@@ -193,4 +193,40 @@ public class MemberDAO {	// 데이터베이스 연동을 위한 클래스
 		
 		return result;
 	}
+	
+	/////////////////////////////////////////////////////////////////////////////
+	// 회원 정보를 수정하기 위한 메서드
+	public int updateMember(MemberVO mVo) {
+		int result = -1;
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		String sql = "UPDATE member SET userpwd=?, email=?, phone=?, admin=? WHERE userid=?";
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(5, mVo.getUserid());
+			psmt.setString(1, mVo.getUserpwd());
+			psmt.setString(2, mVo.getEmail());
+			psmt.setString(3, mVo.getPhone());
+			psmt.setInt(4, mVo.getAdmin());
+			
+			result = psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(psmt!=null)psmt.close();
+				if(conn!=null)conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 }

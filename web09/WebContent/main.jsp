@@ -25,6 +25,7 @@
 			<td>
 				<form action="LoS" method="GET">
 					<input type="submit" value="로그아웃">
+					<input type="button" value="회원 정보 변경" onclick="location.href='MUS?userid=${loginUser.userid}'">
 				</form>
 			</td>
 		</tr>

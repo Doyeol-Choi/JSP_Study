@@ -20,7 +20,7 @@
 		<table>
 			<tr>
 				<td><label for="userid">아이디</label></td>
-				<td><input type="text" name="userid" id="userid" required></td>
+				<td><input type="text" name="userid" id="userid" value="${userid}" required></td>
 			</tr>
 			<tr>
 				<td><label for="userpwd">비밀번호</label></td>

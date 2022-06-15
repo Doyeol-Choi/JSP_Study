@@ -15,7 +15,9 @@
 		<input type="text" name="userid" id="userid" value="${userid}">
 		<input type="submit" value="중복 체크"><br>
 		<c:if test="${result == 1}">	<%-- 중복 아이디 존재 --%>
-			opener.document.frm.userid.value = "";
+			<script type="text/javascript">
+				opener.document.frm.userid.value = "";
+			</script>
 			<p>${userid}는 이미 사용중인 아이디 입니다.</p>
 		</c:if>
 		<c:if test="${result == -1}">	<%-- 사용 가능 아이디 --%>

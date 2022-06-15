@@ -85,3 +85,32 @@ function idCk() {
 	
 	self.close();
 }
+
+function updateCheck() {
+	// 암호 입력 여부
+	if(document.frm.userpwd.value.length == 0){
+		alert("비밀번호를 입력해 주세요!");
+		document.frm.userpwd.focus();
+		return false;
+	}
+	
+	// 전화번호 입력 여부
+	if(document.frm.phone.value.length == 0){
+		alert("전화번호를 입력해 주세요!");
+		document.frm.phone.focus();
+		return false;
+	}
+	
+	// 암호 일치 여부
+	if(document.frm.userpwd.value != document.frm.pwdChk.value){
+		alert("비밀번호가 일치하지 않습니다.");
+		
+		document.frm.userpwd.value = "";
+		document.frm.pwdChk.value = "";
+		
+		document.frm.phone.focus();
+		return false;
+	}
+	
+	return true;
+}
