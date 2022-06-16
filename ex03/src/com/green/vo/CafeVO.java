@@ -17,6 +17,13 @@ public class CafeVO {
 		return size;
 	}
 	public void setSize(String size) {
+		if(size.equals("tall")) {
+			size = "톨";
+		} else if (size.equals("grande")) {
+			size = "그란데";
+		} else if (size.equals("venti")) {
+			size = "벤티";
+		}
 		this.size = size;
 	}
 	public int getNumber() {

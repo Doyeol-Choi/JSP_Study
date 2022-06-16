@@ -18,7 +18,26 @@ import com.green.vo.CafeVO;
 public class Basket extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
+		int delete = Integer.parseInt(request.getParameter("delete"));
+		
+		if(delete == 0) {
+			session.invalidate();
+		} else if(delete == 1) {
+			String coffee = request.getParameter("coffee");
+			int price = Integer.parseInt(request.getParameter("price"));
+			
+			ArrayList<CafeVO> list = (ArrayList<CafeVO>) session.getAttribute("list");
+			
+			for(int i=0; i<list.size(); i++) {
+				if(list.get(i).getCoffee().equals(coffee) && (list.get(i).getPrice() == price)) {
+					list.remove(i);
+					break;
+				}
+			}
+			session.setAttribute("list", list);
+		}
+		response.sendRedirect("index.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +69,8 @@ public class Basket extends HttpServlet {
 		}		
 		session.setAttribute("list", list);
 		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//request.getRequestDispatcher("index.jsp").forward(request, response);
+		response.sendRedirect("index.jsp");
 	}
 
 }
