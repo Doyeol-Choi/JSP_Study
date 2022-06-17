@@ -155,17 +155,16 @@
       
       
       
-        <Context docBase="web09" path="/web09" reloadable="true" source="org.eclipse.jst.jee.server:web09">
-      		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
-    	</Context>
+        
     	<Context docBase="ex03" path="/ex03" reloadable="true" source="org.eclipse.jst.jee.server:ex03">
     		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
     	</Context>
-    	<Context docBase="ex03_tr" path="/ex03_tr" reloadable="true" source="org.eclipse.jst.jee.server:ex03_tr">
-    		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
-    	</Context>
+    	
     	<Context docBase="web10" path="/web10" reloadable="true" source="org.eclipse.jst.jee.server:web10"/>
     	<Context docBase="ex04" path="/ex04" reloadable="true" source="org.eclipse.jst.jee.server:ex04">
+    		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
+    	</Context>
+    	<Context docBase="web10_product" path="/web10_product" reloadable="false" source="org.eclipse.jst.jee.server:web10_product">
     		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
     	</Context>
     	</Host>

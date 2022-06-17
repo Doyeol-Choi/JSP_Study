@@ -30,15 +30,18 @@
 				<th>제목</th>
 				<th>주연 배우</th>
 			</tr>
-		<c:set var="count" value="0"/>
-		<c:forEach var="movieInfo" items="${movieList}">
+		<c:forEach var="movieInfo" varStatus="i" items="${movieList}">
 			<tr>
-				<td>${count+1}</td>
-				<td><a href="MUS?num=${count}">${movieInfo.moviename}</a></td>
+				<td>${i.count}</td>
+				<td><a href="MUS?code=${movieInfo.code}">${movieInfo.moviename}</a></td>
 				<td>${movieInfo.actor}</td>
 			<tr>
-		<c:set var="count" value="${count+1}"/>
 		</c:forEach>
+			<tr>
+				<td colspan="3">
+					<a href="MAS"><input type="button" value="영화 등록"></a>
+				</td>
+			</tr>
 		</table>
 	</div>
 </body>

@@ -5,8 +5,15 @@ public class MovieVO {
 	private String moviename;
 	private String director;
 	private String actor;
+	private String pictureurl;
 	private int price;
 	
+	public String getPictureurl() {
+		return pictureurl;
+	}
+	public void setPictureurl(String pictureurl) {
+		this.pictureurl = pictureurl;
+	}
 	public int getCode() {
 		return code;
 	}

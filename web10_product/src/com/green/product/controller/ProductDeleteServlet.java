@@ -1,34 +1,31 @@
-package com.greeen.servlet;
+package com.green.product.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.greeen.dao.MovieDAO;
-import com.green.vo.MovieVO;
+import com.green.dao.ProductDAO;
 
-@WebServlet("/MLS")
-public class MovieListServlet extends HttpServlet {
+@WebServlet("/PDS")
+public class ProductDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int code = Integer.parseInt(request.getParameter("code"));
+		String url = request.getParameter("url");
 		
-		MovieDAO dao = MovieDAO.getInstance();
+		ProductDAO dao = ProductDAO.getInstance();
 		
-		List<MovieVO> list = dao.movieList();
+		dao.deleteProduct(code, url);
 		
-		request.setAttribute("movieList", list);
-		
-		request.getRequestDispatcher("list.jsp").forward(request, response);
+		response.sendRedirect("PLS");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 	}
 
 }
