@@ -16,7 +16,7 @@ public class MovieDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int code = Integer.parseInt(request.getParameter("code"));
-		String url = "D:\\정보처리산업기사 수업\\Study\\JSP\\ex04\\WebContent\\upload"+request.getParameter("pic");
+		String url = "D:\\정보처리산업기사 수업\\Study\\JSP\\ex04\\WebContent\\upload\\"+request.getParameter("pic");
 		File file = new File(url);
 		
 		MovieDAO dao = MovieDAO.getInstance();

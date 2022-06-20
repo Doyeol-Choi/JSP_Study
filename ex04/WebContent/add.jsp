@@ -24,7 +24,7 @@
 <body>
 	<div id="container">
 		<h2>영화 등록 하기</h2>
-		<form action="MDS" method="post" enctype="multipart/form-data">
+		<form action="MAS" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th><label for="code">코드 : </label></th>
@@ -45,7 +45,7 @@
 				<tr>
 					<th>이미지</th>
 					<td>
-						<input type="file" name="pictureurl" required>
+						<input type="file" name="pictureurl">
 					</td>
 				</tr>
 				<tr>
