@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서버로 데이터 보내기</title>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+<script type="text/javascript" src="jQuery/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<form action="AjexTest01" method="get">
+		<label for="userID">아이디 : </label><input type="text" name="userID" id="userID">
+		<input type="button" value="ID 중복체크" onclick="idChk()"><br>
+		<label for="userName">이름 : </label><input type="text" name="userName" id="userName"><br>
+		<label for="userPwd">비밀번호 : </label><input type="password" name="userPwd" id="userPwd"><br>
+		<input type="button" value="전송" onclick="transport()">
+		<input type="button" value="응답" onclick="returnObj()">
+	</form>
+	<script type="text/javascript">
+		// 중복체크 버튼을 눌렀을 경우
+		// 아이디값이 서버로 전달
+		
+		// Ajax
+		// 1. 전송 방식
+		// 2. 동기화 방식
+		// 3. 서버위치
+		// 4. 서버로 보낼 데이터
+		function idChk() {
+			$.ajax({
+				type:"get",					// 전송 방식 : GET, POST
+				async:true,					// 동기화 여부 : true=비동기, false=동기	// 비동기이기 때문에 서버 동작과 상관없이 폼에서 작업을 계속 할 수 있다.
+				url:"Ajax01Servlet",		// 서버로 보낼 위치 => 서블릿 매핑 주소
+				data:{						// 서버로 보낼 데이터
+					userID:$('#userID').val()
+				},
+				datatype:"text",				// 서버로부터 받을 데이터 타입
+				success:function(data){		// 서버와 통신이 성공적으로 발생했을 때 실행할 함수
+				//	alert('성공');
+					$('#userName').val(data);	// 서버로부터 온 데이터를 data 매개값으로 받아서 처리
+				}, error:function(){		// 서버와 통신이 실패했을 때 실행할 함수
+					alert('실패');
+				}, complete:function(){		// 서버와 통신 성공/실패 여부와 상관없이 완료후 실행될 함수
+					alert('완료');
+				}
+			});
+		}
+		
+		function transport(){
+			let userID = $('#userID').val();
+			let userName = $('#userName').val();
+			let userPwd = $('#userPwd').val();
+			
+			let userInfo = {
+				"userID":userID,
+				"userName":userName,
+				"userPwd":userPwd
+				};
+				
+			$.ajax({
+				type:"post",
+				async:true,
+				url:"Ajax01Servlet",
+				data:{
+					"userInfo":JSON.stringify(userInfo)		// 자바스크립트 객체를 JSON 포장해야 한다
+				}, success:function(){
+					alert('업로드 성공');
+				}, error:function(){
+					alert('업로드 실패');
+				}, complete:function(){
+					alert('업로드 완료');
+				}
+			});
+		}
+		
+		function returnObj(){
+			$.ajax({
+				type:"post",
+				async:true,
+				url:"Ajax02Servlet",
+				datatype:"JSON",	// 반환 타입을 JSON으로 지정하면 데이터를 읽어와서 자동으로 파싱
+				success:function(data){
+					// 파싱
+					let userInfoData = JSON.parse(data);
+					$('#userID').val(userInfoData.uID);
+					$('#userName').val(userInfoData.uName);
+					$('#userPwd').val(userInfoData.uPwd);
+				}
+			});
+		}
+	</script>
+</body>
+</html>

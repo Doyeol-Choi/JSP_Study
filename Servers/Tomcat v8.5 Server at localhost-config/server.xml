@@ -168,7 +168,7 @@
     	<Context docBase="web11_board" path="/web11_board" reloadable="false" source="org.eclipse.jst.jee.server:web11_board">
     		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
     	</Context>
-    	</Host>
+    	<Context docBase="web12" path="/web12" reloadable="false" source="org.eclipse.jst.jee.server:web12"/></Host>
     </Engine>
   </Service>
 </Server>
