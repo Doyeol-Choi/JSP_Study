@@ -152,23 +152,14 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      
-      
-      
-        
-    	
-    	
-    	
-    	<Context docBase="ex04" path="/ex04" reloadable="true" source="org.eclipse.jst.jee.server:ex04">
-    		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
-    	</Context>
-    	<Context docBase="web10_product" path="/web10_product" reloadable="false" source="org.eclipse.jst.jee.server:web10_product">
-    		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
-    	</Context>
     	<Context docBase="web11_board" path="/web11_board" reloadable="false" source="org.eclipse.jst.jee.server:web11_board">
     		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="green"/>
     	</Context>
-    	<Context docBase="web12" path="/web12" reloadable="false" source="org.eclipse.jst.jee.server:web12"/></Host>
+    	<Context docBase="web12" path="/web12" reloadable="false" source="org.eclipse.jst.jee.server:web12"/><Context docBase="ex05" path="/ex05" reloadable="false" source="org.eclipse.jst.jee.server:ex05"/>
+    	<Context docBase="ex06" path="/ex06" reloadable="false" source="org.eclipse.jst.jee.server:ex06">
+    		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green05"/>
+    	</Context>
+    	</Host>
     </Engine>
   </Service>
 </Server>
