@@ -27,8 +27,13 @@ public class CourseInsertAction implements Action {
 		
 		CourseDAO cdao = CourseDAO.getInstance();
 		
-		cdao.insertCourse(cVo);
+		int error = cdao.insertCourse(cVo);
 		
-		response.sendRedirect("CS?command=course_list");
+		if(error==1) {
+			response.sendRedirect("CS?command=course_list");			
+		} else if(error==-1) {
+			request.getRequestDispatcher("/course/insertError.jsp").forward(request, response);
+		}
+		
 	}
 }

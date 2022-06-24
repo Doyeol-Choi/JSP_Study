@@ -52,11 +52,11 @@
 				</tr>
 				<tr>
 					<th><label for="start_hour">시작</label></th>
-					<td><input type="text" name="start_hour" id="start_hour" value="${course.start_hour}" required></td>
+					<td><input type="text" name="start_hour" id="start_hour" value="<c:if test="${course.start_hour<1000}">0</c:if>${course.start_hour}" required></td>
 				</tr>
 				<tr>
 					<th><label for="end_hour">종료</label></th>
-					<td><input type="text" name="end_hour" id="end_hour" value="${course.end_hour}" required></td>
+					<td><input type="text" name="end_hour" id="end_hour" value="<c:if test="${course.end_hour<1000}">0</c:if>${course.end_hour}" required></td>
 				</tr>
 				<tr>
 					<td colspan="2">

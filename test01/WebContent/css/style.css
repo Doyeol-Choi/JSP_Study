@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+header {
+	background-color:#BCA9F5;
+	text-align:center;
+}
+nav {
+	background-color:#8181F7;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+}
+ul {
+	list-style: none;
+}
+li {
+	float: left;
+	padding:0px 20px;
+	margin:0px 20px;
+}
+#container {
+	clear: both;
+}
+.center {
+	width:600px;
+	text-align:center;
+	margin:0px auto;
+}
+footer {
+	background-color:#BCA9F5;
+	text-align:center;
+}

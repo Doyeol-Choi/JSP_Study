@@ -1,11 +1,14 @@
 package com.green.course.dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 
 import com.green.course.db.DBManager;
 import com.green.course.vo.CourseVO;
@@ -60,7 +63,9 @@ public class CourseDAO {
 	
 	//////////////////////////////////////////////////////////////////////////
 	// 리스트 추가
-	public void insertCourse(CourseVO cVo) {
+	public int insertCourse(CourseVO cVo) {
+		int num = 0;
+		
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		
@@ -78,12 +83,14 @@ public class CourseDAO {
 			psmt.setInt(6, cVo.getStart_hour());
 			psmt.setInt(7, cVo.getEnd_hour());
 			
-			psmt.executeUpdate();
+			num = psmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
+			num = -1;
 		} finally {
 			DBManager.close(conn, psmt);
 		}
+		return num;
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////

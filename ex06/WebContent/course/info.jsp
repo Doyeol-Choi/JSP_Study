@@ -34,20 +34,25 @@
 			</tr>
 			<tr>
 				<th>시작</th>
-				<td>${course.start_hour}</td>
+				<td><c:if test="${course.start_hour<1000}">0</c:if>${course.start_hour}</td>
 			</tr>
 			<tr>
 				<th>종료</th>
-				<td>${course.end_hour}</td>
+				<td><c:if test="${course.end_hour<1000}">0</c:if>${course.end_hour}</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<input type="button" value="수정" onclick="location.href='CS?command=course_update_form&id=${course.id}'">&nbsp;
-					<input type="button" value="삭제" onclick="location.href='CS?command=course_delete&id=${course.id}'">&nbsp;
+					<input type="button" value="삭제" onclick="deleteChk()">&nbsp;
 					<input type="button" value="목록" onclick="location.href='CS?command=course_list'">
 				</td>
 			</tr>
 		</table>
 	</div>
+	<script type="text/javascript">
+		function deleteChk() {
+			if (confirm("교과목을 삭제하시겠습니까?")) location.href="CS?command=course_delete&id=${course.id}";
+		}
+	</script>
 </body>
 </html>

@@ -159,7 +159,7 @@
     	<Context docBase="ex06" path="/ex06" reloadable="false" source="org.eclipse.jst.jee.server:ex06">
     		<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle.interstander.com:41521:XE" username="green05"/>
     	</Context>
-    	</Host>
+    	<Context docBase="test01" path="/test01" reloadable="false" source="org.eclipse.jst.jee.server:test01"/></Host>
     </Engine>
   </Service>
 </Server>
