@@ -26,6 +26,7 @@ CREATE TABLE lecturer_tbl (
                         major VARCHAR2(30),
                         field VARCHAR2(30));
 
+DROP SEQUENCE lecturer_seq;
 CREATE SEQUENCE lecturer_seq NOCACHE;
 
 INSERT INTO lecturer_tbl VALUES(lecturer_seq.nextval, '김교수', '소프트웨어 공학', '알고리즘');
@@ -41,5 +42,10 @@ SELECT * FROM lecturer_tbl;
 commit;
 
 SELECT id, c.name, credit, l.name AS lecturer, week, start_hour, end_hour FROM course_tbl c, lecturer_tbl l WHERE c.lecturer = l.idx;
-SELECT name FROM lecturer_tbl ORDER BY idx;
-SELECT id, c.name, credit, l.name AS lecturer, week, start_hour, end_hour FROM course_tbl c, lecturer_tbl l WHERE c.lecturer = l.idx AND c.id='10001';
+SELECT * FROM lecturer_tbl ORDER BY idx;
+SELECT id, c.name, credit, l.name AS lecturer, week, start_hour, end_hour FROM course_tbl c, lecturer_tbl l WHERE c.lecturer = l.idx AND id='50001';
+select lecturer_seq.nextval from dual;
+SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME='lecturer_seq';
+select lecturer_seq.currval from dual;
+SELECT idx, l.name, major, field, c.name AS course FROM lecturer_tbl l, course_tbl c WHERE l.idx = c.lecturer(+) AND idx=6;
+SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'LECTURER_SEQ';

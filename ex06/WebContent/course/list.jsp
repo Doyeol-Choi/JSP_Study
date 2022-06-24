@@ -16,7 +16,7 @@
 			<tr>
 				<td colspan="5">
 					<p style="float:left;">총 <c:out value="${courseList.size()}"/>개의 교과목이 있습니다.</p>
-					<button style="float:right;" onclick="">강사 보기</button>
+					<button style="float:right;" onclick="location.href='CS?command=lecturer_list'">강사 보기</button>
 				</td>
 			</tr>
 			<tr>

@@ -1,4 +1,4 @@
-package com.green.course.controller;
+package com.green.course.controller.Action;
 
 import java.io.IOException;
 
@@ -6,14 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.green.course.controller.Action.Action;
 import com.green.course.dao.CourseDAO;
 import com.green.course.vo.CourseVO;
 
-public class CourseInsertAction implements Action {
+public class CourseUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String originID = request.getParameter("originID");
 		CourseVO cVo = new CourseVO();
 		
 		cVo.setId(request.getParameter("id"));
@@ -26,8 +26,9 @@ public class CourseInsertAction implements Action {
 		
 		CourseDAO cdao = CourseDAO.getInstance();
 		
-		cdao.insertCourse(cVo);
+		cdao.updateCourse(cVo, originID);
 		
 		response.sendRedirect("CS?command=course_list");
 	}
+
 }
