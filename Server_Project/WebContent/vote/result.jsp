@@ -21,6 +21,7 @@
 					<th>성명</th>
 					<th>총투표건수</th>
 				</tr>
+				<!-- 서블릿에서 보낸 List를 하나씩 꺼내서 출력 -->
 				<c:forEach var="result" items="${resultList}">
 					<tr>
 						<td>${result.no}</td>

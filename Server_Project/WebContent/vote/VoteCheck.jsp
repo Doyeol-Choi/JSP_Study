@@ -38,7 +38,12 @@
 						</td>
 						<td>
 							<!-- 기준으로 잡은 2020년05월을 기준으로 만 나이 계산 -->
-							만 ${fn:substring((202005-(190000+(fn:substring(Vote.jumin,0,4)))),0,2)}세
+							<c:if test="${fn:substring(Vote.jumin,6,7) < 3}">
+								만 ${fn:substring((202005-(190000+(fn:substring(Vote.jumin,0,4)))),0,2)}세
+							</c:if>
+							<c:if test="${fn:substring(Vote.jumin,6,7) >= 3}">
+								만 ${fn:substring((202005-(200000+(fn:substring(Vote.jumin,0,4)))),0,2)}세
+							</c:if>
 						</td>
 						<td>
 							<!-- 주민등록번호 7번째 숫자를 기준으로 남자와 여자를 출력 2로 나눈 나머지가 홀수면 남자 짝수면 여자-->
